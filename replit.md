@@ -1,0 +1,122 @@
+# AI Voice Assistant Web Application
+
+## Overview
+
+This is a full-stack AI voice assistant web application built with React/TypeScript frontend, Express.js backend, and PostgreSQL database using Drizzle ORM. The application provides real-time voice interaction capabilities with speech recognition, text-to-speech, and AI assistant features including tool usage for weather, web search, email, and more.
+
+## User Preferences
+
+Preferred communication style: Simple, everyday language.
+
+## System Architecture
+
+### Frontend Architecture
+The frontend is a modern React application built with TypeScript using Vite as the build tool. It follows a component-based architecture with:
+- **UI Framework**: Radix UI components with Tailwind CSS for styling
+- **State Management**: React hooks with custom state management for voice features
+- **Real-time Communication**: WebSocket connection for live chat functionality
+- **Voice Features**: Web Speech API integration for speech recognition and text-to-speech
+
+### Backend Architecture
+The backend is an Express.js server with TypeScript that provides:
+- **API Endpoints**: RESTful API for chat and user management
+- **WebSocket Server**: Real-time bidirectional communication for chat messages
+- **Storage Layer**: Abstracted storage interface with in-memory implementation
+- **Development Tools**: Vite integration for hot module replacement in development
+
+### Data Storage Solutions
+- **Primary Database**: PostgreSQL with Drizzle ORM for schema management
+- **Connection**: Neon Database serverless connection (@neondatabase/serverless)
+- **Schema Management**: Type-safe database operations with automatic migrations
+- **Session Storage**: PostgreSQL session store with connect-pg-simple
+
+## Key Components
+
+### Voice Assistant Core
+- **Speech Recognition Service**: Wrapper around Web Speech API for voice-to-text conversion
+- **Text-to-Speech Service**: Handles voice synthesis with configurable speed and pitch
+- **Voice Visualizer**: Real-time audio visualization during recording
+- **Message Management**: Chat interface with message bubbles and conversation flow
+
+### Real-time Communication
+- **WebSocket Integration**: Bidirectional communication between client and server
+- **Message Broadcasting**: Real-time message delivery to all connected clients
+- **Connection Management**: Automatic reconnection and connection status monitoring
+
+### User Interface
+- **Responsive Design**: Mobile-first approach with adaptive layouts
+- **Theme System**: Light/dark mode with CSS custom properties
+- **Component Library**: Consistent UI components using shadcn/ui and Radix primitives
+- **Accessibility**: Full keyboard navigation and screen reader support
+
+### AI Assistant Features
+- **Tool Integration**: Weather API, web search, email functionality, database operations
+- **Session Management**: User sessions and conversation history
+- **Settings Management**: Customizable voice parameters and UI preferences
+
+## Data Flow
+
+1. **User Input**: Voice or text input through the frontend interface
+2. **Speech Processing**: Voice input converted to text using Web Speech API
+3. **WebSocket Transmission**: Message sent to backend via WebSocket connection
+4. **AI Processing**: Backend processes message and determines appropriate response/tool usage
+5. **Database Storage**: Messages and user data stored in PostgreSQL
+6. **Response Generation**: AI assistant generates response with potential tool results
+7. **Real-time Delivery**: Response sent back through WebSocket to frontend
+8. **Voice Output**: Text-to-speech synthesis for assistant responses
+
+## External Dependencies
+
+### Frontend Dependencies
+- **React Ecosystem**: React 18 with hooks and modern patterns
+- **UI Components**: Radix UI primitives for accessible components
+- **Styling**: Tailwind CSS with custom design system
+- **Voice APIs**: Browser Web Speech API for recognition and synthesis
+- **State Management**: TanStack Query for server state management
+
+### Backend Dependencies
+- **Express.js**: Web framework for API and WebSocket server
+- **Database**: Drizzle ORM with PostgreSQL driver
+- **WebSocket**: ws library for real-time communication
+- **Session Management**: connect-pg-simple for PostgreSQL session storage
+
+### AI and Tool Integration
+- **LiveKit**: Real-time communication and AI agent framework
+- **Google Services**: Integration with Google's AI models and APIs
+- **Search and Weather**: DuckDuckGo search and weather APIs
+- **Email Services**: SMTP integration for email functionality
+
+## Deployment Strategy
+
+### Development Environment
+- **Local Development**: Vite dev server with hot module replacement
+- **Database**: Local PostgreSQL or Neon Database connection
+- **Environment Variables**: .env file for configuration management
+- **Build Process**: Separate frontend (Vite) and backend (esbuild) builds
+
+### Production Deployment
+- **Frontend Build**: Static assets generated by Vite build process
+- **Backend Build**: Node.js server bundle created with esbuild
+- **Database Migrations**: Drizzle migrations applied on deployment
+- **Environment Configuration**: Production environment variables for database and API keys
+
+### Configuration Management
+- **Database Configuration**: Drizzle config with PostgreSQL dialect
+- **TypeScript Configuration**: Shared tsconfig for client, server, and shared code
+- **Build Scripts**: Separate scripts for development, building, and production
+
+The application is designed to be easily deployable on platforms like Replit, Vercel, or traditional hosting providers with minimal configuration changes.
+
+## Recent Changes: Latest modifications with dates
+
+### January 28, 2025 - Enhanced AI Integration & Deployment Ready
+- ✅ Integrated Google Gemini 2.5 Flash API for intelligent, context-aware responses
+- ✅ Fixed all TypeScript and LSP diagnostics errors 
+- ✅ Optimized AI prompts for concise voice interaction (1-3 sentences)
+- ✅ Added real-time WebSocket communication with Gemini AI processing
+- ✅ Enhanced message bubble animations for smoother user experience
+- ✅ Implemented proper error handling for speech recognition and AI responses
+- ✅ Added smart fallback responses when API unavailable
+- ✅ Verified build process and deployment readiness
+- ✅ Configured environment variables for production deployment
+- 🚀 Application ready for deployment with full AI capabilities
